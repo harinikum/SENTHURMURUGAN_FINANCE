@@ -1,0 +1,20 @@
+.label-and-input{
+    display: flex;
+    justify-content: space-between;
+}
+.label-and-input:nth-child(1),.label-and-input:nth-child(2){
+    flex: 1;
+}
+.lab-input{
+    width: 50%;
+}
+.inp-select{
+    /* border-radius: 5px; */
+    width: 50%;
+}
+
+@media screen and (max-width:500px) {
+    .lab-input{
+        width: 60%;
+    }
+}

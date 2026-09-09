@@ -1,0 +1,82 @@
+
+.login-container {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    /* padding: 40px; */
+    /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+    text-align: center;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-form{
+    min-width: 350px;
+    position: relative;
+}
+.column{
+    flex-direction: column;
+    gap: 10px;
+}
+.forget-pass{
+    position: absolute;
+    right: 0px;
+    bottom: -50px;
+    color: rgb(133, 129, 243) !important;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.login-form h1 {
+    margin-bottom: 20px;
+    color: #008B8B;
+}
+
+.login-form p {
+    margin-bottom: 30px;
+    color: #ca0000;
+    position: absolute;
+    margin-top: -20px;
+    margin-left: 20px;
+    font-size: 11px;
+}
+
+.login-form input {
+    width: calc(100% - 40px);
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.log-button {
+    background: linear-gradient(to right, #008B8B, #9fc1c1);
+    border: none;
+    border-radius: 50px;
+    color: white;
+    padding: 5px 30px;
+    font-size: 18px;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.log-button:hover {
+    background: linear-gradient(to right, #024b4b, #9fc1c1);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+.log-button:active {
+    background: linear-gradient(to right,  #008B8B, #9fc1c1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transform: translateY(0);
+}
+.displaynone{
+   display: none;
+}

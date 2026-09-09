@@ -1,0 +1,139 @@
+/* ── Add Agent Page Layout ── */
+.add-agent-page {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    background-color: var(--primary);
+    box-sizing: border-box;
+}
+
+/* ── Left Panel (Form) ── */
+.add-agent-left {
+    width: 320px;
+    min-width: 280px;
+    max-width: 340px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 24px 16px;
+    box-sizing: border-box;
+    border-right: 1.5px solid #c9d9ea;
+    background-color: var(--primary);
+    height: 100%;
+}
+
+.add-agent-form-card {
+    width: 100%;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 12px rgba(127, 161, 195, 0.18);
+    padding: 24px 20px 28px 20px;
+    box-sizing: border-box;
+}
+
+.add-agent-form-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--secondary);
+    margin: 0 0 6px 0;
+    letter-spacing: 0.3px;
+}
+
+.add-agent-title-bar {
+    height: 3px;
+    width: 48px;
+    background-color: var(--secondary);
+    border-radius: 2px;
+    margin-bottom: 22px;
+}
+
+/* ── Form Fields ── */
+.add-agent-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.add-agent-field {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.add-agent-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #4a5568;
+    letter-spacing: 0.2px;
+}
+
+.add-agent-input {
+    border: 1.5px solid #c9d9ea;
+    border-radius: 5px;
+    padding: 7px 10px;
+    font-size: 13px;
+    font-family: inherit;
+    background: var(--primary);
+    color: #1a202c;
+    outline: none;
+    transition: border-color 0.2s;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.add-agent-input:focus {
+    border-color: var(--secondary);
+    background: #fff;
+}
+
+.add-agent-input::placeholder {
+    color: #a0aec0;
+    font-size: 12px;
+}
+
+/* ── Submit Button — matches site's primary-btn style + secondary colour ── */
+.add-agent-submit-btn {
+    margin-top: 8px;
+    width: 100%;
+    padding: 8px 0;
+    background-color: var(--secondary);
+    color: var(--primary);
+    border: 2px solid var(--secondary);
+    border-radius: 5px;
+    font-size: 13px;
+    font-weight: 700;
+    font-family: inherit;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+    letter-spacing: 0.3px;
+}
+
+.add-agent-submit-btn:hover {
+    background-color: transparent;
+    color: var(--secondary);
+}
+
+.add-agent-submit-btn:active {
+    background-color: var(--secondary);
+    color: var(--primary);
+    opacity: 0.85;
+}
+
+.add-agent-submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* ── Right Panel (Table) ── */
+.add-agent-right {
+    flex: 1;
+    height: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+/* Keep existing table search container working */
+.table-conatainer-search {
+    height: 100%;
+}

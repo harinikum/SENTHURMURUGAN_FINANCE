@@ -1,0 +1,83 @@
+.reports-container{
+    display: flex;
+    height: 100%;
+}
+
+.reports-left{
+    border: 1px solid;
+    width: 70vw;
+}
+
+.reports-right{
+    width: 30vw;
+}
+.reports-right-btns{
+    border: 1px solid;
+}
+
+.two-btns{
+    display: flex;
+}
+.report-btn,.report-btn-selected{
+    flex: 1;
+    text-align: center;
+    border: 1px solid black;
+    cursor: pointer;
+}
+.report-btn-selected{
+    background-color: var(--secondary);
+    color: white;
+}
+
+
+.wise-reports{
+    padding: 0px 10px;
+}
+.reports-heading{
+    color: var(--secondary);
+    font-weight: bolder;
+    text-align: center;
+}
+.daily-reports-radios{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+ 
+ .metrics-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 15px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.metric-card {
+  background: linear-gradient(135deg, var(--secondary, #3a7bd5) 0%, #3a6073 100%);
+  color: white;
+  padding: 15px 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  flex: 1;
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.metric-card:hover {
+  transform: translateY(-5px);
+}
+
+.metric-title {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.9;
+  margin-bottom: 8px;
+}
+
+.metric-value {
+  font-size: 1.5rem;
+  font-weight: bold;
+}

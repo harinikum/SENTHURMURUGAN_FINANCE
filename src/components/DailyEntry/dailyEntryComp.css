@@ -1,0 +1,124 @@
+.daily-entry-comp{
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+.daily-entry-left{
+    flex: 1;
+    /* width: 20vw; */
+    padding: 10px;
+    height: 100%;
+    box-sizing: border-box;
+}
+.daily-entry-right{
+    flex: 4;
+    /* width: 80vw; */
+    /* box-sizing: border-box; */
+    /* background-color: var(--secondary); */
+    /* padding: 10px; */
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    /* display: flex; */
+}
+.daily-entry-un-scroll-table,.daily-entry-scroll-table{
+    height: 100%;
+}
+.daily-entry-un-scroll-table{
+    width: 30%;
+}
+.daily-entry-un-scroll-table::-webkit-scrollbar{
+    border: none;
+}
+.daily-entry-scroll-table{
+    width: 70%;
+}
+
+/* ==========================
+   Daily Entry Mobile View
+========================== */
+@media (max-width:768px){
+
+    .daily-entry-comp{
+        display:flex;
+        flex-direction:row;     
+        flex-wrap:nowrap;
+        align-items:flex-start;
+        overflow-x:auto;
+        gap:10px;
+    }
+
+    /* Left Form */
+    .daily-entry-left{
+        flex:0 0 220px;
+        min-width:220px;
+        width:220px;
+        padding:10px;
+    }
+    .daily-entry-left input,
+    .daily-entry-left select{
+        width:100%;
+        box-sizing:border-box;
+    }
+
+    /* Right Table */
+    .daily-entry-right{
+        flex:0 0 auto;
+        width:auto;
+        min-width:100%;
+        overflow-x:auto;
+        overflow-y:auto;
+        max-height:80vh; 
+    }
+
+    .daily-entry-un-scroll-table{
+        width:auto !important;
+    }
+
+    .daily-entry-scroll-table{
+        width:auto !important;
+    }
+
+    .daily-entry-right table{
+    min-width:700px;
+    border-collapse:collapse;
+    table-layout:auto;
+}
+
+/* Align Submit button on mobile */
+@media (max-width:768px){
+    .table-right .pop-cancel-btn{
+        width:90%;
+        max-width:150px;
+        margin:10px auto 0;
+        display:block;
+    }
+}
+
+    .daily-entry-right th,
+    .daily-entry-right td{
+        white-space:nowrap;
+        padding:6px 8px;
+        font-size:12px;
+        text-align:center;
+    }
+    /* Month Selection Adjustments */
+    .daily-entry-left .daily-entry-form > div > div:nth-child(2) {
+        flex-direction: column !important;
+        gap: 8px;
+    }
+
+    .daily-entry-left .daily-entry-form > div > div:nth-child(2) > div {
+        width: 100%;
+        justify-content: space-between;
+        display: flex;
+        gap: 10px;
+    }
+
+    .daily-entry-left .daily-entry-form > div > div:nth-child(2) > div button {
+        flex: 1;
+        width: 100%;
+    }
+
+
+}
