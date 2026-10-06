@@ -10,16 +10,55 @@ import LabelAndInputSugg from '../../../common/Form/LabeAndSelect.jsx/LabelAndIn
 import { tableFectchApi } from '../../../utils/TableFunctions/tableFetchApi'
 import { getCredintials } from '../../../utils/locatStorage/getCerditials'
 import { downloadPDF } from '../../../utils/Pdf/pdfDownload'
-import { getCategoryRange } from '../../../common/utils/categoryUtils'
+import { getCategoryRange, getCategoryFromNumber } from '../../../common/utils/categoryUtils'
 
-const CustomerDetailsLeft = ({custDetailArrState, setCustDetailArrState, afterMembers, setAfterMembers,loading,setLoading=()=>{},values = {},setValues = () => {},buttons = [],setButtons = () => {},setMsg = ()=>{},setIsSuccess = ()=>{},setisError=()=>{},onDeleteClick=()=>{}, datas, setDatas, setHasMore}) => {
+const CustomerDetailsLeft = ({viewCategory="", setViewCategory=()=>{}, custDetailArrState, setCustDetailArrState, afterMembers, setAfterMembers,loading,setLoading=()=>{},values = {},setValues = () => {},buttons = [],setButtons = () => {},setMsg = ()=>{},setIsSuccess = ()=>{},setisError=()=>{},onDeleteClick=()=>{}, datas, setDatas, setHasMore}) => {
 
   const [areas, setAreas] = useState([]);
   const [agents, setAgents] = useState([]);
+  const [categoriesList, setCategoriesList] = useState(['A', 'B', 'C']);
 
   const [downloadLoad, setDownloadLoad] = useState(false);
   // const [afterMembers, setAfterMembers] = useState([]);
   // const [custDetailArrState, setCustDetailArrState] = useState(customerDetailsArr);
+
+  const loadCategories = async () => {
+    try {
+      const res = await apiFunction(endPointURLs.getMembers, "POST", { limit: 200 });
+      const catSet = new Set(['A', 'B', 'C']);
+      if (res?.data?.message === "success" && Array.isArray(res.data.data)) {
+        res.data.data.forEach((item) => {
+          let cat = item.Category || item.category;
+          if (!cat || !cat.toString().trim()) {
+            const noteNum = item['உ.எண்'] || item['note_id'] || item['id'];
+            cat = getCategoryFromNumber(noteNum);
+          }
+          if (cat && typeof cat === 'string' && cat.trim()) {
+            catSet.add(cat.trim().toUpperCase());
+          }
+        });
+      }
+      if (Array.isArray(datas)) {
+        datas.forEach((item) => {
+          let cat = item.Category || item.category;
+          if (!cat || !cat.toString().trim()) {
+            const noteNum = item['உ.எண்'] || item['note_id'] || item['id'];
+            cat = getCategoryFromNumber(noteNum);
+          }
+          if (cat && typeof cat === 'string' && cat.trim()) {
+            catSet.add(cat.trim().toUpperCase());
+          }
+        });
+      }
+      setCategoriesList(Array.from(catSet).sort());
+    } catch (e) {
+      console.error("Failed to load dynamic categories:", e);
+    }
+  };
+
+  useEffect(() => {
+    loadCategories();
+  }, [datas]);
 
   const openFun = async()=>{
     const agentApi = await apiFunction(endPointURLs.getAgentNamesAndAreas,"POST",{search_term : values.area})
@@ -152,6 +191,22 @@ const CustomerDetailsLeft = ({custDetailArrState, setCustDetailArrState, afterMe
   return (
     <div className='form-left-container'>
       <form className="left-form" onSubmit={onSubmitHandler}>
+        <div className="label-and-input">
+          <label className="inp-label" htmlFor="viewCategory">View Category</label>
+          <select
+            id="viewCategory"
+            className="lab-input"
+            name="viewCategory"
+            value={viewCategory || ''}
+            onChange={(e) => setViewCategory(e.target.value)}
+          >
+            <option value="">-- All Categories --</option>
+            {categoriesList.map((cat) => (
+              <option key={cat} value={cat}>{cat}</option>
+            ))}
+          </select>
+        </div>
+        <br />
         <div className='customer-details-form-flex'>
           <LabelAndInputSugg name={'agent'} label={'Agent'} dataList={agents} setDataList={setAgents} id={'agent'} listName={'AgeNt'} onChangeHandler={onAgentChange} value={values['agent']}/>
           <LabelAndInput name={'area'} label={'Area'} dataList={areas} id={'area'} listName={'ArEa'} onChangeHandler={areaOnChange} value={values['area']}/>

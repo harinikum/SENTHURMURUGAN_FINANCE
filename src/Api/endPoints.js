@@ -1,17 +1,17 @@
 // export const endPointPort = "http://localhost/finance_desktop_new_be/super_admin_api/";
 // export const endPointPortAgent = "http://localhost/finance_desktop_new_be/agent_api/";
 
-// export const endPointPort = "https://vebbox.in/senthurmurugan/be/super_admin_api/";
-// export const endPointPortAgent = "https://vebbox.in/senthurmurugan/be/agent_api/";
+export const endPointPort = "https://vebbox.in/senthurmurugan/be/super_admin_api/";
+export const endPointPortAgent = "https://vebbox.in/senthurmurugan/be/agent_api/";
 
 // export const endPointPort = "https://vebbox.in/financedesktopnew/be/super_admin_api/";
 // export const endPointPortAgent = "https://vebbox.in/financedesktopnew/be/agent_api/";
 
-export const endPointPort =
-"http://localhost/fin_murugancategory_be/finance_desktop_new_be-main/app/super_admin_api/";
+// export const endPointPort =
+// "http://localhost/fin_murugancategory_be/finance_desktop_new_be-main/app/super_admin_api/";
 
-export const endPointPortAgent =
-"http://localhost/fin_murugancategory_be/finance_desktop_new_be-main/app/agent_api/";
+// export const endPointPortAgent =
+// "http://localhost/fin_murugancategory_be/finance_desktop_new_be-main/app/agent_api/";
 
 
 export const endPointURLs = {

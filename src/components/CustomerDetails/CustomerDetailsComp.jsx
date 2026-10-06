@@ -23,6 +23,7 @@ const CustomerDetailsComp = () => {
   const [afterMembers, setAfterMembers] = useState([]);
   const [datas, setDatas] = useState([]);
   const [hasMore, setHasMore] = useState(true);
+  const [viewCategory, setViewCategory] = useState("");
 
   const navigate = useNavigate();
 
@@ -110,9 +111,9 @@ const CustomerDetailsComp = () => {
       )}
       {!loading ? (
         <div className="left-right-conatiner">
-          <CustomerDetailsLeft hasMore={hasMore} setHasMore={setHasMore} datas={datas} setDatas={setDatas} afterMembers={afterMembers} setAfterMembers={setAfterMembers} custDetailArrState={custDetailArrState} setCustDetailArrState={setCustDetailArrState} onDeleteClick={onDeleteClick} setIsSuccess={setIsSuccess} setisError={setisError} setMsg={setMsg} loading={loading} setLoading={setLoading} values={values} setValues={setValues} buttons={buttons} setButtons={setButtons} />
+          <CustomerDetailsLeft viewCategory={viewCategory} setViewCategory={setViewCategory} hasMore={hasMore} setHasMore={setHasMore} datas={datas} setDatas={setDatas} afterMembers={afterMembers} setAfterMembers={setAfterMembers} custDetailArrState={custDetailArrState} setCustDetailArrState={setCustDetailArrState} onDeleteClick={onDeleteClick} setIsSuccess={setIsSuccess} setisError={setisError} setMsg={setMsg} loading={loading} setLoading={setLoading} values={values} setValues={setValues} buttons={buttons} setButtons={setButtons} />
 
-          <CustomerDetailsRight hasMore={hasMore} setHasMore={setHasMore} datas={datas} setDatas={setDatas} afterMembers={afterMembers} setAfterMembers={setAfterMembers} custDetailArrState={custDetailArrState} setCustDetailArrState={setCustDetailArrState} values={values} setValues={setValues} buttons={buttons} setButtons={setButtons}/>
+          <CustomerDetailsRight viewCategory={viewCategory} setViewCategory={setViewCategory} hasMore={hasMore} setHasMore={setHasMore} datas={datas} setDatas={setDatas} afterMembers={afterMembers} setAfterMembers={setAfterMembers} custDetailArrState={custDetailArrState} setCustDetailArrState={setCustDetailArrState} values={values} setValues={setValues} buttons={buttons} setButtons={setButtons}/>
           <div style={{position:"absolute",right:"2vw",cursor:"pointer",display:"flex",color:"var(--secondary)"}} onClick={()=>navigate(path.trashMembers)}>
             <Delete/>
             <p>Trash</p>
